@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t aakash0017/nginxapp -f Dockerfile.dev 
+
+scripts:
+  - docker run aakash0017/nginxapp npm run test -- --coverage
